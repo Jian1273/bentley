@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年A股投资策略报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0), rgba(16, 185, 129, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-teal {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0), rgba(20, 184, 166, 0.05));
+        }
+        .investment-badge {
+            @apply px-3 py-1 rounded-full text-xs font-semibold;
+        }
+        .investment-badge-buy {
+            @apply bg-green-100 text-green-800;
+        }
+        .investment-badge-hold {
+            @apply bg-yellow-100 text-yellow-800;
+        }
+        .investment-badge-sell {
+            @apply bg-red-100 text-red-800;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 投资要点卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-chart-line text-2xl text-blue-500 mr-3"></i>
+                        <h1 class="text-2xl md:text-3xl font-bold text-gray-800">投资要点</h1>
+                    </div>
+                    <p class="text-gray-600 mb-6">基于技术面、热点、政策和新闻多维度综合分析，我们对20只股票进行了深入研究。</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="text-sm text-blue-600 font-medium mb-1">买入标的</div>
+                            <div class="text-lg font-bold text-blue-800">6只</div>
+                            <div class="text-xs text-gray-500 mt-1">百大集团、中天精装、百亚股份、紫燕食品、浙文互联、光库科技</div>
+                        </div>
+                        <div class="bg-yellow-50 rounded-lg p-4">
+                            <div class="text-sm text-yellow-600 font-medium mb-1">谨慎观察</div>
+                            <div class="text-lg font-bold text-yellow-800">2只</div>
+                            <div class="text-xs text-gray-500 mt-1">安妮股份、一品红</div>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-4">
+                            <div class="text-sm text-red-600 font-medium mb-1">不建议买入</div>
+                            <div class="text-lg font-bold text-red-800">12只</div>
+                            <div class="text-xs text-gray-500 mt-1">法尔胜、江龙船艇、海欣食品等</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 高潜力买入标的 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-star text-2xl text-green-500 mr-3"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">高潜力买入标的</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 百大集团 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">百大集团</h3>
+                                    <p class="text-sm text-gray-500">600865</p>
+                                </div>
+                                <span class="investment-badge investment-badge-buy">买入</span>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">目标价</div>
+                                <div class="text-lg font-bold text-green-600">18-20元</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">止损位</div>
+                                <div class="text-lg font-bold text-red-500">13.5元</div>
+                            </div>
+                            <p class="text-xs text-gray-500">零售政策红利下的强势龙头，连续5个交易日涨停，累计涨幅超50%</p>
+                        </div>
+                        
+                        <!-- 中天精装 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">中天精装</h3>
+                                    <p class="text-sm text-gray-500">002989</p>
+                                </div>
+                                <span class="investment-badge investment-badge-buy">买入</span>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">目标价</div>
+                                <div class="text-lg font-bold text-green-600">32-35元</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">止损位</div>
+                                <div class="text-lg font-bold text-red-500">23元</div>
+                            </div>
+                            <p class="text-xs text-gray-500">半导体转型带来估值重塑，参股科睿斯布局ABF载板业务</p>
+                        </div>
+                        
+                        <!-- 百亚股份 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">百亚股份</h3>
+                                    <p class="text-sm text-gray-500">003006</p>
+                                </div>
+                                <span class="investment-badge investment-badge-buy">买入</span>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">目标价</div>
+                                <div class="text-lg font-bold text-green-600">28-32元</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">止损位</div>
+                                <div class="text-lg font-bold text-red-500">19元</div>
+                            </div>
+                            <p class="text-xs text-gray-500">三胎政策红利下的区域龙头，自由点品牌在本土卫生巾品牌中排名第二</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 稳健型买入标的 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-shield-halved text-2xl text-orange-500 mr-3"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">稳健型买入标的</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 紫燕食品 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">紫燕食品</h3>
+                                    <p class="text-sm text-gray-500">603057</p>
+                                </div>
+                                <span class="investment-badge investment-badge-buy">买入</span>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">目标价</div>
+                                <div class="text-lg font-bold text-green-600">23-25元</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">止损位</div>
+                                <div class="text-lg font-bold text-red-500">17元</div>
+                            </div>
+                            <p class="text-xs text-gray-500">卤制品赛道的稳健成长股，佐餐卤味行业头部企业</p>
+                        </div>
+                        
+                        <!-- 浙文互联 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">浙文互联</h3>
+                                    <p class="text-sm text-gray-500">600986</p>
+                                </div>
+                                <span class="investment-badge investment-badge-buy">买入</span>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">目标价</div>
+                                <div class="text-lg font-bold text-green-600">11-13元</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">止损位</div>
+                                <div class="text-lg font-bold text-red-500">8元</div>
+                            </div>
+                            <p class="text-xs text-gray-500">AI营销新业务爆发在即，数字营销行业领军企业</p>
+                        </div>
+                        
+                        <!-- 光库科技 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">光库科技</h3>
+                                    <p class="text-sm text-gray-500">300620</p>
+                                </div>
+                                <span class="investment-badge investment-badge-buy">买入</span>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">目标价</div>
+                                <div class="text-lg font-bold text-green-600">180-200元</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm text-gray-600 mb-1">止损位</div>
+                                <div class="text-lg font-bold text-red-500">150元</div>
+                            </div>
+                            <p class="text-xs text-gray-500">CPO技术全球领先的光通信龙头，AI算力需求爆发受益者</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 投资策略建议 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-lightbulb text-2xl text-purple-500 mr-3"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">投资策略建议</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 短线策略 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-bolt text-purple-500 mr-2"></i>
+                                <h3 class="text-lg font-bold text-gray-800">短线投资策略</h3>
+                                <span class="text-xs text-gray-500 ml-2">1-2周</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="text-sm font-medium text-gray-700">首选标的</div>
+                                <div class="text-lg font-bold text-purple-600">百大集团</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mb-4">买入区间: 13.5-14元<br>止损位: 12.8元<br>目标价: 16-18元</div>
+                            <p class="text-xs text-gray-600">零售政策利好和强势技术形态，短期上涨动能充足</p>
+                        </div>
+                        
+                        <!-- 中线策略 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-hourglass-half text-purple-500 mr-2"></i>
+                                <h3 class="text-lg font-bold text-gray-800">中线投资策略</h3>
+                                <span class="text-xs text-gray-500 ml-2">1-3个月</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="text-sm font-medium text-gray-700">首选标的</div>
+                                <div class="text-lg font-bold text-purple-600">光库科技</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mb-4">买入区间: 160元以下<br>止损位: 150元<br>目标价: 180-200元</div>
+                            <p class="text-xs text-gray-600">CPO技术全球领先企业，充分受益于AI算力需求爆发</p>
+                        </div>
+                        
+                        <!-- 长线策略 -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-hourglass-end text-purple-500 mr-2"></i>
+                                <h3 class="text-lg font-bold text-gray-800">长线投资策略</h3>
+                                <span class="text-xs text-gray-500 ml-2">6个月以上</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="text-sm font-medium text-gray-700">首选标的</div>
+                                <div class="text-lg font-bold text-purple-600">百亚股份</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mb-4">买入区间: 20元以下<br>止损位: 19元<br>目标价: 28-32元</div>
+                            <p class="text-xs text-gray-600">区域个护龙头，三胎政策红利下具备长期成长潜力</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 市场环境与投资机会总结 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart text-2xl text-teal-500 mr-3"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">市场环境与投资机会总结</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-4">当前市场环境特征</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">政策面利好密集，零售、半导体、个护、数字经济、光通信等多个行业均有政策支持</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">技术面分化明显，部分股票处于超跌反弹阶段，部分股票处于主升浪中</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">资金面结构性行情特征明显，热点板块轮动较快</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-4">重点把握四大机会</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600"><strong>政策驱动型机会</strong>：重点关注受益于促消费政策的零售股</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600"><strong>技术突破型机会</strong>：关注在关键技术领域取得突破的公司</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600"><strong>转型升级型机会</strong>：关注传统行业向新兴产业转型的公司</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-teal-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600"><strong>消费升级型机会</strong>：关注受益于消费升级的品牌企业</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-teal-50 rounded-lg">
+                        <p class="text-sm text-gray-700">
+                            <strong>总体建议：</strong>在当前市场环境下，百大集团、中天精装、百亚股份分别在短、中、长期维度展现出最佳投资价值。建议投资者根据自身风险偏好和投资期限，选择合适的标的进行投资。同时，要保持理性，控制风险，避免追高，把握市场调整带来的买入机会。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 股票评级图表 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-chart-pie text-2xl text-red-500 mr-3"></i>
+                        <h2 class="text-xl font-bold text-gray-800">股票评级分布</h2>
+                    </div>
+                    <div class="flex-grow relative h-64">
+                        <canvas id="ratingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 风险提示 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-triangle-exclamation text-2xl text-red-500 mr-3"></i>
+                        <h2 class="text-xl font-bold text-gray-800">风险控制建议</h2>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-shield-halved text-red-500 mt-1 mr-2"></i>
+                            <span class="text-sm text-gray-600"><strong>仓位管理</strong>：单只股票仓位不超过30%，总体仓位控制在70%以内</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-shield-halved text-red-500 mt-1 mr-2"></i>
+                            <span class="text-sm text-gray-600"><strong>止损设置</strong>：所有买入标的均需设置明确止损位，一般为买入价下方5-8%</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-shield-halved text-red-500 mt-1 mr-2"></i>
+                            <span class="text-sm text-gray-600"><strong>分散投资</strong>：建议在6只推荐股票中选择3-4只进行组合投资</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-shield-halved text-red-500 mt-1 mr-2"></i>
+                            <span class="text-sm text-gray-600"><strong>动态调整</strong>：密切关注政策变化、公司业绩和市场环境，及时调整投资策略</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 初始化股票评级图表
+    const ratingCtx = document.getElementById('ratingChart').getContext('2d');
+    const ratingChart = new Chart(ratingCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['买入标的', '谨慎观察', '不建议买入'],
+            datasets: [{
+                data: [6, 2, 12],
+                backgroundColor: [
+                    '#10B981', // 绿色 - 买入
+                    '#F59E0B', // 黄色 - 谨慎观察
+                    '#EF4444'  // 红色 - 不建议买入
+                ],
+                borderWidth: 0,
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        font: {
+                            size: 12
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw || 0;
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = Math.round((value / total) * 100);
+                            return `${label}: ${value}只 (${percentage}%)`;
+                        }
+                    }
+                }
+            },
+            cutout: '60%'
+        }
+    });
+</script>
+</html>
